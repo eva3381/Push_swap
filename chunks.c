@@ -1,32 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   chunks.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: evaflete <evaflete@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/12/01 13:23:40 by evaflete          #+#    #+#             */
-/*   Updated: 2025/12/01 14:17:52 by evaflete         ###   ########.fr       */
+/*   Created: 2025/12/01 13:59:24 by evaflete          #+#    #+#             */
+/*   Updated: 2025/12/01 14:56:31 by evaflete         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	main(int ac, char **av)
-{
-	t_node	*a;
-	t_node	*b;
-	int		size;
+void	sort_3(t_node **a);
+void	sort_5(t_node **a, t_node **b);
 
-	if (ac < 2)
-		return (0);
-	a = parse_args(ac, av);
-	b = NULL;
-	size = stack_size(a);
-	if (is_sorted(a))
-		return (free_stack(&a), 0);
-	assign_indices(a, size);
-	sort_chunks(&a, &b, size);
-	free_stack(&a);
-	return (0);
+void	sort_chunks(t_node **a, t_node **b, int size)
+{
+	int	chunk;
+
+	if (size <= 100)
+		chunk = 20;
+	else
+		chunk = 40;
+	push_to_b(a, b, chunk, size);
+	push_back_to_a(a, b);
 }

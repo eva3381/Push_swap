@@ -1,32 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   ft_lstlast.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: evaflete <evaflete@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/12/01 13:23:40 by evaflete          #+#    #+#             */
-/*   Updated: 2025/12/01 14:17:52 by evaflete         ###   ########.fr       */
+/*   Created: 2025/10/13 16:16:51 by evaflete          #+#    #+#             */
+/*   Updated: 2025/10/13 16:23:05 by evaflete         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "libft.h"
 
-int	main(int ac, char **av)
+t_list	*ft_lstlast(t_list *lst)
 {
-	t_node	*a;
-	t_node	*b;
-	int		size;
-
-	if (ac < 2)
-		return (0);
-	a = parse_args(ac, av);
-	b = NULL;
-	size = stack_size(a);
-	if (is_sorted(a))
-		return (free_stack(&a), 0);
-	assign_indices(a, size);
-	sort_chunks(&a, &b, size);
-	free_stack(&a);
-	return (0);
+	if (!lst)
+		return (NULL);
+	while (lst -> next)
+	{
+		lst = lst -> next;
+	}
+	return (lst);
 }

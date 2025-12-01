@@ -1,32 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   ft_putendl_fd.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: evaflete <evaflete@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/12/01 13:23:40 by evaflete          #+#    #+#             */
-/*   Updated: 2025/12/01 14:17:52 by evaflete         ###   ########.fr       */
+/*   Created: 2025/10/08 13:10:58 by evaflete          #+#    #+#             */
+/*   Updated: 2025/10/08 13:37:23 by evaflete         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "libft.h"
 
-int	main(int ac, char **av)
+void	ft_putendl_fd(char *s, int fd)
 {
-	t_node	*a;
-	t_node	*b;
-	int		size;
+	size_t	i;
 
-	if (ac < 2)
-		return (0);
-	a = parse_args(ac, av);
-	b = NULL;
-	size = stack_size(a);
-	if (is_sorted(a))
-		return (free_stack(&a), 0);
-	assign_indices(a, size);
-	sort_chunks(&a, &b, size);
-	free_stack(&a);
-	return (0);
+	i = 0;
+	while (s[i] != '\0')
+	{
+		write(fd, &s[i], 1);
+		i++;
+	}
+	write(fd, "\n", 1);
 }

@@ -1,32 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   ft_strncmp.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: evaflete <evaflete@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/12/01 13:23:40 by evaflete          #+#    #+#             */
-/*   Updated: 2025/12/01 14:17:52 by evaflete         ###   ########.fr       */
+/*   Created: 2025/10/07 13:01:41 by evaflete          #+#    #+#             */
+/*   Updated: 2025/10/07 13:14:16 by evaflete         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "libft.h"
 
-int	main(int ac, char **av)
+int	ft_strncmp(const char *s1, const char *s2, size_t n)
 {
-	t_node	*a;
-	t_node	*b;
-	int		size;
+	unsigned int	i;
 
-	if (ac < 2)
-		return (0);
-	a = parse_args(ac, av);
-	b = NULL;
-	size = stack_size(a);
-	if (is_sorted(a))
-		return (free_stack(&a), 0);
-	assign_indices(a, size);
-	sort_chunks(&a, &b, size);
-	free_stack(&a);
+	i = 0;
+	while ((i < n) && (s2[i] != '\0' || s1[i] != '\0'))
+	{
+		if (s1[i] != s2[i])
+		{
+			return ((unsigned char) s1[i] - (unsigned char) s2[i]);
+		}
+		i++;
+	}
 	return (0);
 }

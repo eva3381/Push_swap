@@ -1,32 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   push_to_be.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: evaflete <evaflete@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/12/01 13:23:40 by evaflete          #+#    #+#             */
-/*   Updated: 2025/12/01 14:17:52 by evaflete         ###   ########.fr       */
+/*   Created: 2025/12/01 14:00:40 by evaflete          #+#    #+#             */
+/*   Updated: 2025/12/01 14:01:55 by evaflete         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	main(int ac, char **av)
+void	push_to_b(t_node **a, t_node **b, int chunk, int size)
 {
-	t_node	*a;
-	t_node	*b;
-	int		size;
+	int	limit;
+	int	pushed;
 
-	if (ac < 2)
-		return (0);
-	a = parse_args(ac, av);
-	b = NULL;
-	size = stack_size(a);
-	if (is_sorted(a))
-		return (free_stack(&a), 0);
-	assign_indices(a, size);
-	sort_chunks(&a, &b, size);
-	free_stack(&a);
-	return (0);
+	limit = chunk;
+	pushed = 0;
+	while (pushed < size)
+	{
+		if ((*a)->index <= limit)
+		{
+			pb(a, b);
+			pushed++;
+			if ((*b)->index > limit - (chunk / 2))
+				rb(b);
+		}
+		else
+			ra(a);
+		if (pushed == limit)
+			limit += chunk;
+	}
 }

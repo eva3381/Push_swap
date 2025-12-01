@@ -1,32 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   ft_isdigit.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: evaflete <evaflete@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/12/01 13:23:40 by evaflete          #+#    #+#             */
-/*   Updated: 2025/12/01 14:17:52 by evaflete         ###   ########.fr       */
+/*   Created: 2025/09/29 15:28:23 by evaflete          #+#    #+#             */
+/*   Updated: 2025/10/07 13:13:45 by evaflete         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "libft.h"
 
-int	main(int ac, char **av)
+int	ft_isdigit(int c)
 {
-	t_node	*a;
-	t_node	*b;
-	int		size;
-
-	if (ac < 2)
+	if (('0' <= c && c <= '9'))
+	{
+		return (1);
+	}
+	else
+	{
 		return (0);
-	a = parse_args(ac, av);
-	b = NULL;
-	size = stack_size(a);
-	if (is_sorted(a))
-		return (free_stack(&a), 0);
-	assign_indices(a, size);
-	sort_chunks(&a, &b, size);
-	free_stack(&a);
-	return (0);
+	}
 }
+
+// int	main(void)
+// {
+// 	int	rest;
+// 	char *str;
+// 	char	str1[] = "";
+
+// 	str = &str1[0];
+// 	rest = ft_isdigit(str);
+// 	if (rest == 1)
+// 		printf("Solo hay numeros o está vacío");
+// 	else
+// 		printf("Hay algo que no es numeros.");
+// 	return (0);
+// }

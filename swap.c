@@ -1,32 +1,46 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   swap.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: evaflete <evaflete@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/12/01 13:23:40 by evaflete          #+#    #+#             */
-/*   Updated: 2025/12/01 14:17:52 by evaflete         ###   ########.fr       */
+/*   Created: 2025/12/01 13:41:09 by evaflete          #+#    #+#             */
+/*   Updated: 2025/12/01 13:44:03 by evaflete         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	main(int ac, char **av)
+static void	swap_nodes(t_node **s)
 {
 	t_node	*a;
 	t_node	*b;
-	int		size;
 
-	if (ac < 2)
-		return (0);
-	a = parse_args(ac, av);
-	b = NULL;
-	size = stack_size(a);
-	if (is_sorted(a))
-		return (free_stack(&a), 0);
-	assign_indices(a, size);
-	sort_chunks(&a, &b, size);
-	free_stack(&a);
-	return (0);
+	if (!*s || !(*s)->next)
+		return ;
+	a = *s;
+	b = a->next;
+	a->next = b->next;
+	b->next = a;
+	*s = b;
+}
+
+void	sa(t_node **a)
+{
+	swap_nodes(a);
+	write(1, "sa\n", 3);
+}
+
+void	sb(t_node **b)
+{
+	swap_nodes(b);
+	write(1, "sb\n", 3);
+}
+
+void	ss(t_node **a, t_node **b)
+{
+	swap_nodes(a);
+	swap_nodes(b);
+	write(1, "ss\n", 3);
 }

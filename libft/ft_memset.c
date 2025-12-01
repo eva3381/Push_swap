@@ -1,32 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   ft_memset.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: evaflete <evaflete@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/12/01 13:23:40 by evaflete          #+#    #+#             */
-/*   Updated: 2025/12/01 14:17:52 by evaflete         ###   ########.fr       */
+/*   Created: 2025/10/01 18:18:42 by evaflete          #+#    #+#             */
+/*   Updated: 2025/10/07 13:14:41 by evaflete         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "libft.h"
 
-int	main(int ac, char **av)
+void	*ft_memset(void *s, int c, size_t n)
 {
-	t_node	*a;
-	t_node	*b;
-	int		size;
+	unsigned char	*p;
 
-	if (ac < 2)
-		return (0);
-	a = parse_args(ac, av);
-	b = NULL;
-	size = stack_size(a);
-	if (is_sorted(a))
-		return (free_stack(&a), 0);
-	assign_indices(a, size);
-	sort_chunks(&a, &b, size);
-	free_stack(&a);
-	return (0);
+	p = (unsigned char *)s;
+	while (n != 0)
+	{
+		*p = (unsigned char )c;
+		p++;
+		n--;
+	}
+	return (s);
 }
+
+// int	main(void)
+// {
+// 	char	a[10]="XXXXXXXXXX";
+// 	printf("Mi función: %s\n", (char *)ft_memset(a, 'a', 8));
+// 	printf("Función original: %s\n", (char *)memset(a, 'a', 8));
+// 	return (0);
+// }
