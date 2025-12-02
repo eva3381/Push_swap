@@ -26,7 +26,9 @@ SRCS = \
     reverse_rotate.c \
     chunks.c \
     push_to_b.c \
-    push_to_a.c\
+    push_to_a.c \
+    sort_3.c \
+    sort_5.c\
 
 OBJS = $(SRCS:.c=.o)
 LIBFT_DIR = libft
