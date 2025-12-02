@@ -6,7 +6,7 @@
 #    By: evaflete <evaflete@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/12/01 13:21:33 by evaflete          #+#    #+#              #
-#    Updated: 2025/12/01 14:37:38 by evaflete         ###   ########.fr        #
+#    Updated: 2025/12/01 17:28:26 by evaflete         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -26,7 +26,7 @@ SRCS = \
     reverse_rotate.c \
     chunks.c \
     push_to_b.c \
-    push_to_a.c
+    push_to_a.c\
 
 OBJS = $(SRCS:.c=.o)
 LIBFT_DIR = libft
