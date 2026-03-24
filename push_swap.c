@@ -26,10 +26,7 @@ int	main(int ac, char **av)
 	if (is_sorted(a))
 		return (free_stack(&a), 0);
 	assign_indices(a, size);
-	if (size <= 5)
-		sort_5(&a, &b);
-	else
-		sort_chunks(&a, &b, size);
+	sort_chunks(&a, &b, size);
 	free_stack(&a);
 	return (0);
 }

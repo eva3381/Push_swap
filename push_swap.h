@@ -6,7 +6,7 @@
 /*   By: evaflete <evaflete@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/01 13:23:10 by evaflete          #+#    #+#             */
-/*   Updated: 2025/12/01 17:27:15 by evaflete         ###   ########.fr       */
+/*   Updated: 2025/12/04 16:47:55 by evaflete         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,8 +43,6 @@ void	rr(t_node **a, t_node **b);
 void	rra(t_node **a);
 void	rrb(t_node **b);
 void	rrr(t_node **a, t_node **b);
-void	sort_3(t_node **a);
-void	sort_5(t_node **a, t_node **b);
 void	sort_chunks(t_node **a, t_node **b, int size);
 void	push_to_b(t_node **a, t_node **b, int chunk, int size);
 void	push_back_to_a(t_node **a, t_node **b);
